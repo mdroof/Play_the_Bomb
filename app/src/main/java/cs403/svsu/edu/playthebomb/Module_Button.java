@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v4.widget.TextViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -91,6 +93,12 @@ public class Module_Button extends Fragment {
         mListener = null;
     }
 
+    public void updateTestText(String str){
+        TextView tv = (TextView) getView().findViewById(R.id.tv_test);
+        tv.setText(str);
+
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -103,7 +111,15 @@ public class Module_Button extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
+
+        //Function headers to be implemented in the activity
         public void onFragmentInteraction(Uri uri);
+        //public boolean isSolved();
+        //public void onButtonClicked();
+
+
+
+
     }
 
 }
