@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -20,7 +21,8 @@ import android.view.WindowManager;
  *
  * @see SystemUiHider
  */
-public class Bomb extends Activity implements Module_Button.OnFragmentInteractionListener{
+public class Bomb extends Activity implements Module_Button.OnFragmentInteractionListener,
+        Module_Timer.OnFragmentInteractionListener{
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -201,37 +203,19 @@ public class Bomb extends Activity implements Module_Button.OnFragmentInteractio
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
 
+
+
         //Fragment interfaces
     public void onFragmentInteraction(Uri uri){
-        Module_Button module_button = (Module_Button)
-                getFragmentManager().findFragmentById(R.id.fragment_col2_row0);
-        
-        if (module_button != null) {
-            // If article frag is available, we're in two-pane layout...
 
-            // Call a method in the ArticleFragment to update its content
-            module_button.updateTestText("Yes!");
-        } else {
-            /*
-            // Otherwise, we're in the one-pane layout and must swap frags...
 
-            // Create fragment and give it an argument for the selected article
-            Module_Button newFragment = new Module_Button();
-            Bundle args = new Bundle();
-            args.putInt(Module_Button.ARG_POSITION, position);
-            newFragment.setArguments(args);
+    }
 
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-            // Replace whatever is in the fragment_container view with this fragment,
-            // and add the transaction to the back stack so the user can navigate back
-            transaction.replace(R.id.fragment_container, newFragment);
-            transaction.addToBackStack(null);
+    public void makeItToast(String str){
+        Toast.makeText(getApplicationContext(), str.toString(),
+                Toast.LENGTH_SHORT).show();
 
-            // Commit the transaction
-            transaction.commit();
-            */
-        }
     }
 
 }

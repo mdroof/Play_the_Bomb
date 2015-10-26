@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.support.v4.widget.TextViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +13,12 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Module_Button.OnFragmentInteractionListener} interface
+ * {@link Module_Timer.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Module_Button#newInstance} factory method to
+ * Use the {@link Module_Timer#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Module_Button extends Fragment {
+public class Module_Timer extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -37,11 +36,11 @@ public class Module_Button extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Module_Button.
+     * @return A new instance of fragment Module_Timer.
      */
     // TODO: Rename and change types and number of parameters
-    public static Module_Button newInstance(String param1, String param2) {
-        Module_Button fragment = new Module_Button();
+    public static Module_Timer newInstance(String param1, String param2) {
+        Module_Timer fragment = new Module_Timer();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -49,7 +48,7 @@ public class Module_Button extends Fragment {
         return fragment;
     }
 
-    public Module_Button() {
+    public Module_Timer() {
         // Required empty public constructor
     }
 
@@ -66,13 +65,36 @@ public class Module_Button extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_module__button, container, false);
+        return inflater.inflate(R.layout.fragment_module__timer, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onButtonPressed(View view) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            TextView tv = (TextView)view.findViewById(R.id.button3);
+            mListener.makeItToast(tv.getText().toString());
+        }
+    }
+
+    //@Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button3:
+                if (mListener != null) {
+                    TextView tv = (TextView)view.findViewById(R.id.button3);
+                    mListener.makeItToast(tv.getText().toString());
+                }
+                break;
+            /*case R.id.someOtherButton:
+                doOtherStuff()
+                break;
+            case R.id.YetAnotherButton:
+                doSomeMoreStuff()
+                break;
+            default:
+                Log.i(TAG, "Unknown: " + view.getId());
+                break;
+                */
         }
     }
 
@@ -93,11 +115,6 @@ public class Module_Button extends Fragment {
         mListener = null;
     }
 
-    public void isSolved(String str){
-
-
-    }
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -110,16 +127,8 @@ public class Module_Button extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-
-        //Function headers to be implemented in the activity
         public void onFragmentInteraction(Uri uri);
-
-        //public boolean isSolved();
-        //public void onButtonClicked();
-
-
-
-
+        public void makeItToast(String str);
     }
 
 }

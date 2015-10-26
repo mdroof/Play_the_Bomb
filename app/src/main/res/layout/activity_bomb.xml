@@ -11,27 +11,29 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/firstRow">
+        android:id="@+id/firstRow"
+        android:minHeight="150dp">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="New Button"
-            android:id="@+id/button"
-            android:layout_column="0" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="New Button"
             android:id="@+id/button2"
+            android:layout_column="0" />
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="cs403.svsu.edu.playthebomb.Module_Button"
+            android:id="@+id/fragment_col2_row0"
             android:layout_column="1" />
 
         <fragment
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:name="cs403.svsu.edu.playthebomb.Module_Button"
-            android:id="@+id/fragment_col2_row0"
+            android:name="cs403.svsu.edu.playthebomb.Module_Timer"
+            android:id="@+id/fragment2"
             android:layout_column="2" />
 
         <!--<fragment
@@ -47,21 +49,33 @@
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/secondRow">
+        android:id="@+id/secondRow"
+        android:minHeight="150dp">
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="New Button"
-            android:id="@+id/button4"
-            android:layout_column="0" />
+
+
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="New Button"
             android:id="@+id/button5"
+            android:layout_column="0" />
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="cs403.svsu.edu.playthebomb.Module_Timer"
+            android:id="@+id/fragment"
             android:layout_column="1" />
+
+        <fragment
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:name="cs403.svsu.edu.playthebomb.Module_Timer"
+            android:id="@+id/fragment3"
+            android:layout_column="2" />
+
 
     </TableRow>
 
